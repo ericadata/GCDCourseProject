@@ -1,0 +1,152 @@
+#Code Book
+  
+##Study design 
+###Collection of the raw data
+The data was downloaded and extracted on 04/23/2015 from a zip file that was linked on the Getting and Cleaning Data Course Project Page on Coursera.
+ 
+###Notes on the original (raw) data 
+Details about the original data can be found in the README.txt and features_info.txt located in the zip file of the original data.
+
+###Extracted Variables
+The project required a tidy data set with measurements of mean and standard deviation and a tidy data set with the average of each variable for each activity and each subject. Therefore all columns containing 'mean' and 'std' were included as well as the corresponding subject and activity columns.
+ 
+###How to create the tidy data file
+The idea is to use the UCI HAR data set to create two tidy data sets. Achieve this by doing the following:    
+1. Download and extract the zip file.  
+2. Read the relevant files into R.  
+3. Add headings and column bind the x, y, and subject data for train and test separately.  
+4. Merge together the new train and test set data.  
+5. Create a subset with the relevant std and mean measurements.  
+6. Change the format of the activity column to contain descriptive labels.  
+7. Tidy the column names and make them more descriptive.  
+8. Check that the dplyr package is in library and load it.  
+9. With the tidy data frame, create a data frame tbl.  
+10. Group the tbl by subject and activity.  
+11. Use this data set to create a new tidy data set with the calculated the mean for each measurement column.    
+The run_analysis.R script has the process in more detail.
+
+ 
+##Description of tidymean.txt file and variables
+###General description of the file:
+ - tidy data set with the mean of each mean and standard deviation
+    measurement per activity and subject
+ - Dimensions: 180 by 81
+ - Class of column 1, 'subject': integer
+ - Class of column 2, 'activity': factor
+ - Class of columns 3:81, computed means: numeric
+ 
+###Variables
+The following is formatted as [column number] "heading":  
+[1] "subject"  
+[2] "activity"  
+[3] "timebodyaccelerationstandarddeviationx"  
+[4] "timebodyaccelerationstandarddeviationy"                     
+[5] "timebodyaccelerationstandarddeviationz"                     
+[6] "timegravityaccelerationstandarddeviationx"                  
+[7] "timegravityaccelerationstandarddeviationy"                  
+[8] "timegravityaccelerationstandarddeviationz"                  
+[9] "timebodyaccelerationjerkstandarddeviationx"                
+[10] "timebodyaccelerationjerkstandarddeviationy"                
+[11] "timebodyaccelerationjerkstandarddeviationz"                
+[12] "timebodyangularvelocitystandarddeviationx"                 
+[13] "timebodyangularvelocitystandarddeviationy"                 
+[14] "timebodyangularvelocitystandarddeviationz"                 
+[15] "timebodyangularvelocityjerkstandarddeviationx"             
+[16] "timebodyangularvelocityjerkstandarddeviationy"             
+[17] "timebodyangularvelocityjerkstandarddeviationz"             
+[18] "timebodyaccelerationmagnitudestandarddeviation"            
+[19] "timegravityaccelerationmagnitudestandarddeviation"         
+[20] "timebodyaccelerationjerkmagnitudestandarddeviation"        
+[21] "timebodyangularvelocitymagnitudestandarddeviation"         
+[22] "timebodyangularvelocityjerkmagnitudestandarddeviation"     
+[23] "frequencybodyaccelerationstandarddeviationx"               
+[24] "frequencybodyaccelerationstandarddeviationy"               
+[25] "frequencybodyaccelerationstandarddeviationz"               
+[26] "frequencybodyaccelerationjerkstandarddeviationx"           
+[27] "frequencybodyaccelerationjerkstandarddeviationy"           
+[28] "frequencybodyaccelerationjerkstandarddeviationz"           
+[29] "frequencybodyangularvelocitystandarddeviationx"            
+[30] "frequencybodyangularvelocitystandarddeviationy"            
+[31] "frequencybodyangularvelocitystandarddeviationz"            
+[32] "frequencybodyaccelerationmagnitudestandarddeviation"       
+[33] "frequencybodyaccelerationjerkmagnitudestandarddeviation"   
+[34] "frequencybodyangularvelocitymagnitudestandarddeviation"    
+[35] "frequencybodyangularvelocityjerkmagnitudestandarddeviation"  
+[36] "timebodyaccelerationmeanx"                                 
+[37] "timebodyaccelerationmeany"                                 
+[38] "timebodyaccelerationmeanz"                                 
+[39] "timegravityaccelerationmeanx"                              
+[40] "timegravityaccelerationmeany"                              
+[41] "timegravityaccelerationmeanz"                              
+[42] "timebodyaccelerationjerkmeanx"                             
+[43] "timebodyaccelerationjerkmeany"                             
+[44] "timebodyaccelerationjerkmeanz"                             
+[45] "timebodyangularvelocitymeanx"                              
+[46] "timebodyangularvelocitymeany"                              
+[47] "timebodyangularvelocitymeanz"                              
+[48] "timebodyangularvelocityjerkmeanx"                          
+[49] "timebodyangularvelocityjerkmeany"                          
+[50] "timebodyangularvelocityjerkmeanz"                          
+[51] "timebodyaccelerationmagnitudemean"                         
+[52] "timegravityaccelerationmagnitudemean"                      
+[53] "timebodyaccelerationjerkmagnitudemean"                     
+[54] "timebodyangularvelocitymagnitudemean"                      
+[55] "timebodyangularvelocityjerkmagnitudemean"                  
+[56] "frequencybodyaccelerationmeanx"                            
+[57] "frequencybodyaccelerationmeany"                            
+[58] "frequencybodyaccelerationmeanz"                            
+[59] "frequencybodyaccelerationmeanfreqx"                        
+[60] "frequencybodyaccelerationmeanfreqy"                        
+[61] "frequencybodyaccelerationmeanfreqz"                        
+[62] "frequencybodyaccelerationjerkmeanx"                        
+[63] "frequencybodyaccelerationjerkmeany"                        
+[64] "frequencybodyaccelerationjerkmeanz"                        
+[65] "frequencybodyaccelerationjerkmeanfreqx"                    
+[66] "frequencybodyaccelerationjerkmeanfreqy"                    
+[67] "frequencybodyaccelerationjerkmeanfreqz"                    
+[68] "frequencybodyangularvelocitymeanx"                         
+[69] "frequencybodyangularvelocitymeany"                         
+[70] "frequencybodyangularvelocitymeanz"                         
+[71] "frequencybodyangularvelocitymeanfreqx"                     
+[72] "frequencybodyangularvelocitymeanfreqy"                     
+[73] "frequencybodyangularvelocitymeanfreqz"                     
+[74] "frequencybodyaccelerationmagnitudemean"                    
+[75] "frequencybodyaccelerationmagnitudemeanfreq"                
+[76] "frequencybodyaccelerationjerkmagnitudemean"                
+[77] "frequencybodyaccelerationjerkmagnitudemeanfreq"            
+[78] "frequencybodyangularvelocitymagnitudemean"                 
+[79] "frequencybodyangularvelocitymagnitudemeanfreq"             
+[80] "frequencybodyangularvelocityjerkmagnitudemean"             
+[81] "frequencybodyangularvelocityjerkmagnitudemeanfreq" 
+ 
+#### Notes on subject
+The subject refers to the 30 volunteers within an age bracket of 19-48 years who performed the activities.
+
+#### Notes on activity
+The 6 activities the subject could carry out were: WALKING, WALKINGUPSTAIRS, WALKINGDOWNSTAIRS, SITTING, STANDING, and LAYING.
+
+####Notes on variables in columns 3:81
+The meaning of the names of the columns can be broken down using the following descriptions:  
+* time - time domain signal  
+* frequency - frequency domain signal  
+* bodyacceleration - body linear acceleration signal measured with accelerometer  
+* bodyangularvelocity - body angular velocity signal measured with gyroscope   
+* gravityacceleration - gravity acceleration signal measured with accelerometer  
+* jerk - Jerk signals  
+* magnitude - magnitude calculated using the Euclidean norm  
+* standarddeviation - standard deviation value  
+* meanfreq - weighted average of the frequency components to obtain a mean frequency  
+* mean - mean value  
+* x - x-axis  
+* y - y-axis  
+* z - z-axis  
+
+For example, "frequencybodyangularvelocityjerkmagnitudemeanfreq" is the weighted average of the frequency component of the magnitude of the jerk signal from the frequency body angular velocity signal.
+
+#####Units
+Variables measured by the accelerometer are in standard gravity units 'g'.
+Variables measured by the gyroscope units are radians/second.
+
+ 
+####Sources
+The format of this code book was partially modeled after [this](https://gist.github.com/dbc1fc0402f28cad9b41.git) template

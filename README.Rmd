@@ -1,0 +1,18 @@
+#README
+
+## Getting and Cleaning Data Course Project
+***
+This course project is from the John Hopkins' Getting and Cleaning data class on Coursera. The goal is the create tidy data in R that can be used for analysis.
+
+The data set used is 'Human Activity Recognition Using Smartphones Data Set' from UC Irvine Machine Learning Repository. Details about this data and the download link can be found [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
+
+The files used were downloaded April 23, 2015.
+
+#### The files included in this repository are:
+* ReadME.Rmd
+* run_analysis.R: R script used to create two tidy data sets from the HCI HAR data set.
+* tidymean.txt: the final tidy data set that results from the run_analysis.R script. In order to view it in R, use:
+    ```
+    data <- read.table(file_path, header=T) ; View(data)
+    ```
+* CodeBook.Rmd: a code book that describes the variables, the data, and work performed to create tidymean.txt

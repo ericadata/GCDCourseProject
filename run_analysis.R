@@ -26,6 +26,9 @@ std <- grep("std", names(data))
 subset <- data[ , c(1:2, std, mean)]
 
 # Make activity labels descriptive
+al <- read.table("activity_labels.txt")
+al$V2 <- sub("_", "", al$V2)
+subset <- merge(al, subset, by.x="V1", by.y="activity", all=T)
 subset <- merge(al, subset, by.x="V1", by.y="activity", all=T)
 subset <- subset[, -1]
 names(subset)[1] <- "activity"
